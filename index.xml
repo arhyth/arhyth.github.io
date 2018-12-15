@@ -6,10 +6,30 @@
     <description>Recent content on David Ebreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 22 Aug 2015 06:28:26 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 14 Dec 2018 00:11:35 +0800</lastBuildDate>
     
 	<atom:link href="https://arhyth.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Advent of Code 2018 Day 3</title>
+      <link>https://arhyth.github.io/code/aoc-2018-day3/</link>
+      <pubDate>Fri, 14 Dec 2018 00:11:35 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/code/aoc-2018-day3/</guid>
+      <description>This solution turned out much longer and even more complicated than I had hoped it would. My solutions for previous days involved pipelines of Enum functions and I purposely avoided going that route as they looked less intelligible with every additional line of anonymous iteration. I had hoped writing around &amp;ldquo;names&amp;rdquo; ala OOP would lend to a shorter and far more readable code. BurntSushi&amp;rsquo;s elegant implementation in Rust seemed ideal. However, the clarity of having names to code around quickly diluted with writing custom type boilerplate and this also due to Elixir having no actual types.</description>
+    </item>
+    
+    <item>
+      <title>Pass me them params</title>
+      <link>https://arhyth.github.io/blog/pass-me-them-params/</link>
+      <pubDate>Sat, 01 Dec 2018 17:41:15 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/pass-me-them-params/</guid>
+      <description>Explicit is better than implicit.
+Zen of Python
+ Pass me them params In my previous job, writing scripts to automate some of the repetitive tasks got me back into the programming route which eventually led me to consider a career shift. To be honest, automating tasks was, at least upfront, more hard work than additional straight up keystrokes. And without guarantee that the time invested will return in any quality or amount of savings, especially for smaller tasks, it was a day&amp;rsquo;s work worth of risk.</description>
+    </item>
     
     <item>
       <title>colophon</title>

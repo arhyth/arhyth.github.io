@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="David Ebreo">
+<meta name="description" content="This solution turned out much longer and even more complicated than I had hoped it would. My solutions for previous days involved pipelines of Enum functions and I purposely avoided going that route as they looked less intelligible with every additional line of anonymous iteration. I had hoped writing around &ldquo;names&rdquo; ala OOP would lend to a shorter and far more readable code. BurntSushi&rsquo;s elegant implementation in Rust seemed ideal. However, the clarity of having names to code around quickly diluted with writing custom type boilerplate and this also due to Elixir having no actual types.">
+
+<meta property="og:title" content="Advent of Code 2018 Day 3" />
+<meta property="og:description" content="This solution turned out much longer and even more complicated than I had hoped it would. My solutions for previous days involved pipelines of Enum functions and I purposely avoided going that route as they looked less intelligible with every additional line of anonymous iteration. I had hoped writing around &ldquo;names&rdquo; ala OOP would lend to a shorter and far more readable code. BurntSushi&rsquo;s elegant implementation in Rust seemed ideal. However, the clarity of having names to code around quickly diluted with writing custom type boilerplate and this also due to Elixir having no actual types." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arhyth.github.io/code/aoc-2018-day3/" /><meta property="article:published_time" content="2018-12-14T00:11:35&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-14T00:11:35&#43;08:00"/>
+
+
+<title>
+
+
+     Advent of Code 2018 Day 3 
+
+</title>
+<link rel="canonical" href="https://arhyth.github.io/code/aoc-2018-day3/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/darcula.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2018-12-15%2023%3a01%3a05.032982122%20%2b0800%20PST%20m%3d%2b0.049238507">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2018-12-15%2023%3a01%3a05.032982122%20%2b0800%20PST%20m%3d%2b0.049238507">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2018-12-15%2023%3a01%3a05.032982122%20%2b0800%20PST%20m%3d%2b0.049238507">
+    
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2018-12-15%2023%3a01%3a05.032982122%20%2b0800%20PST%20m%3d%2b0.049238507">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://arhyth.github.io/img/double_sided_eraser.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://arhyth.github.io/"><img class="avatar" src="https://arhyth.github.io/img/profile.jpg" srcset="https://arhyth.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://arhyth.github.io/"><div class="name">David Ebreo</div></a>
+            
+              <h3 class="self-intro">A traditional engineer in a past life, now working his way to singularity, errrm... software. 
+Preferred tech stack is Elixir, Ethereum, and also Go.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://arhyth.github.io/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://arhyth.github.io/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://arhyth.github.io/code/"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/davidebreo" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:arhyth@gmail.com"><img class="icon" src="https://arhyth.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Advent of Code 2018 Day 3
+
+</div>
+
+            <div class="markdown">
+                <p>This solution turned out much longer and even more complicated than I had hoped it would. My solutions for previous days involved pipelines of Enum functions and I purposely avoided going that route as they looked less intelligible with every additional line of anonymous iteration. I had hoped writing around &ldquo;names&rdquo; ala OOP would lend to a shorter and far more readable code. BurntSushi&rsquo;s <a href="https://github.com/BurntSushi/advent-of-code/blob/master/aoc03/src/main.rs">elegant implementation in Rust</a> seemed ideal. However, the clarity of having names to code around quickly diluted with writing custom type boilerplate and this also due to Elixir having no actual types. Where the Rust implementation had names referring to vector types, my implementation has structs for names which are basically maps and so much of the code was working around (I would even say, against, in hindsight) this limitation &ndash; where I really wanted a list I got a list inside a map.</p>
+
+<pre><code class="language-elixir">defmodule Grid do
+  defstruct grid: %{}
+
+  defimpl Collectable do
+    def into(grid) do
+      {grid.grid,
+       fn
+         acc, {:cont, {row, col}} -&gt;
+           into_grid(acc, {Integer.to_string(row), Integer.to_string(col)})
+
+         acc, :done -&gt;
+           %{grid | grid: Map.merge(grid.grid, acc)}
+
+         acc, :halt -&gt;
+           %{grid | grid: Map.merge(grid.grid, acc)}
+       end}
+    end
+
+    defp into_grid(acc, {row, col}) do
+      if Map.has_key?(acc, row) do
+        Map.update!(acc, row, &amp;Map.update(&amp;1, col, 1, fn v -&gt; v + 1 end))
+      else
+        Map.put(acc, row, Map.put(%{}, col, 1))
+      end
+    end
+  end
+
+  defimpl Enumerable do
+    def reduce(%{grid: map}, acc, fun) do
+      reduce_list(:maps.to_list(map), acc, fun)
+    end
+
+    defp reduce_list(_list, {:halt, acc}, _fun), do: {:halted, acc}
+
+    defp reduce_list(list, {:suspend, acc}, fun),
+      do: {:suspended, acc, &amp;reduce_list(list, &amp;1, fun)}
+
+    defp reduce_list([], {:cont, acc}, _fun), do: {:done, acc}
+
+    defp reduce_list([head | tail], {:cont, acc}, fun),
+      do: reduce_list(tail, fun.(head, acc), fun)
+  end
+end
+
+defmodule Disputed do
+  def count(input) do
+    input
+    |&gt; Claims.from_input()
+    # claims to enumerable streams
+    |&gt; Enum.map(&amp;Claims.stream/1)
+    # pipe claim entries to grid
+    |&gt; Enum.reduce(%Grid{}, &amp;Enum.into/2)
+    # reduce streams to disputed tiles count
+    |&gt; Enum.reduce(0, &amp;count_disputed_tiles/2)
+  end
+
+  defp count_disputed_tiles({_, col}, acc) do
+    acc + Enum.count(col, fn {_, v} -&gt; v &gt; 1 end)
+  end
+end
+
+defmodule Claims do
+  defstruct id: nil,
+            x: nil,
+            y: nil,
+            width: nil,
+            height: nil
+
+  @claims_pattern ~r{#(?&lt;id&gt;[0-9]+)\s+@\s+(?&lt;x&gt;[0-9]+),(?P&lt;y&gt;[0-9]+):\s+(?&lt;w&gt;[0-9]+)x(?&lt;h&gt;[0-9]+)}
+
+  def from_input(file) do
+    file
+    |&gt; File.stream!()
+    |&gt; Enum.map(&amp;parse/1)
+  end
+
+  def stream(%__MODULE__{x: x, y: y, width: w, height: h}) do
+    {x, y}
+    |&gt; Stream.iterate(fn {x_, y_} -&gt;
+      if x_ + 1 &lt; x + w do
+        {x_ + 1, y_}
+      else
+        {x, y_ + 1}
+      end
+    end)
+    |&gt; Stream.take_while(fn {x_, y_} -&gt;
+      x_ &lt; x + w &amp;&amp; y_ &lt; y + h
+    end)
+  end
+
+  defp parse(string) do
+    names =
+      @claims_pattern
+      |&gt; Regex.named_captures(String.trim(string))
+      |&gt; Enum.map(fn {k, v} -&gt; {String.to_atom(k), String.to_integer(v)} end)
+
+    struct(
+      __MODULE__,
+      id: names[:id],
+      x: names[:x],
+      y: names[:y],
+      width: names[:w],
+      height: names[:h]
+    )
+  end
+end
+</code></pre>
+
+<p>Jose Valim&rsquo;s super short if not equally (as BurntSushi&rsquo;s) elegant implementation, for comparison. It&rsquo;s concise and readable, despite the nested <code>Enum.reduce</code> expressions in the <code>claimed_inches</code> function. In the hands of lesser programmers&rsquo; this approach would have</p>
+
+<p>(types and doctests redacted)</p>
+
+<pre><code class="language-elixir">defmodule Day3 do
+  def parse_claim(string) when is_binary(string) do
+    string
+    |&gt; String.split([&quot;#&quot;, &quot;@&quot;, &quot;,&quot;, &quot;:&quot;, &quot;x&quot;], trim: true)
+    |&gt; Enum.map(&amp;String.to_integer/1)
+  end
+
+  def claimed_inches(claims) do
+    Enum.reduce(claims, %{}, fn claim, acc -&gt; 
+      [id, left, top, width, height] = parse_claim(claim)
+    
+      Enum.reduce (left+1)..(left+ width), acc, fn x, acc -&gt;
+        Enum.reduce (top+1)..(top+height), acc, fn y, acc -&gt;
+          Map.update(acc, {x, y}, [id], &amp;([id | &amp;1]))
+        end
+      end
+    end)
+  end
+
+  def overlapped_inches(claims) do
+    for {coordinate, [_, _ | _]} &lt;- claimed_inches(claims) do
+      coordinate
+    end
+  end
+end
+</code></pre>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/elixir.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
