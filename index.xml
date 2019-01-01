@@ -6,10 +6,20 @@
     <description>Recent content on David Ebreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 14 Dec 2018 00:11:35 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 31 Dec 2018 14:31:25 +0800</lastBuildDate>
     
 	<atom:link href="https://arhyth.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Shiny Shiny</title>
+      <link>https://arhyth.github.io/blog/shiny-shiny/</link>
+      <pubDate>Mon, 31 Dec 2018 14:31:25 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/shiny-shiny/</guid>
+      <description>Developers are obsessed with tools. It&amp;rsquo;s our natural tendency. The capacity for toolmaking separates us from our less evolved counterparts in the biology tree &amp;ndash; the ability to build on top of the existing, to refine the crude. It&amp;rsquo;s only too easy to get too involved in the tools than in the &amp;ldquo;building up&amp;rdquo; that they should be used for.
+This past year I&amp;rsquo;m glad to have reached a certain level of comfort with developer tooling that I was able to invest (I should say waste) my time learning other programming concepts, patterns and techniques.</description>
+    </item>
     
     <item>
       <title>Advent of Code 2018 Day 3</title>

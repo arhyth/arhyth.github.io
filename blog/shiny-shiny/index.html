@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="David Ebreo">
+<meta name="description" content="Developers are obsessed with tools. It&rsquo;s our natural tendency. The capacity for toolmaking separates us from our less evolved counterparts in the biology tree &ndash; the ability to build on top of the existing, to refine the crude. It&rsquo;s only too easy to get too involved in the tools than in the &ldquo;building up&rdquo; that they should be used for.
+This past year I&rsquo;m glad to have reached a certain level of comfort with developer tooling that I was able to invest (I should say waste) my time learning other programming concepts, patterns and techniques.">
+
+<meta property="og:title" content="Shiny Shiny" />
+<meta property="og:description" content="Developers are obsessed with tools. It&rsquo;s our natural tendency. The capacity for toolmaking separates us from our less evolved counterparts in the biology tree &ndash; the ability to build on top of the existing, to refine the crude. It&rsquo;s only too easy to get too involved in the tools than in the &ldquo;building up&rdquo; that they should be used for.
+This past year I&rsquo;m glad to have reached a certain level of comfort with developer tooling that I was able to invest (I should say waste) my time learning other programming concepts, patterns and techniques." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arhyth.github.io/blog/shiny-shiny/" /><meta property="article:published_time" content="2018-12-31T14:31:25&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-31T14:31:25&#43;08:00"/>
+
+
+<title>
+
+
+     Shiny Shiny 
+
+</title>
+<link rel="canonical" href="https://arhyth.github.io/blog/shiny-shiny/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/darcula.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2019-01-01%2011%3a50%3a44.502775555%20%2b0800%20PST%20m%3d%2b0.112968203">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2019-01-01%2011%3a50%3a44.502775555%20%2b0800%20PST%20m%3d%2b0.112968203">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2019-01-01%2011%3a50%3a44.502775555%20%2b0800%20PST%20m%3d%2b0.112968203">
+    
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2019-01-01%2011%3a50%3a44.502775555%20%2b0800%20PST%20m%3d%2b0.112968203">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://arhyth.github.io/img/double_sided_eraser.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://arhyth.github.io/"><img class="avatar" src="https://arhyth.github.io/img/profile.jpg" srcset="https://arhyth.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://arhyth.github.io/"><div class="name">David Ebreo</div></a>
+            
+              <h3 class="self-intro">A traditional engineer in a past life, now working his way to singularity, errrm... software. 
+Preferred tech stack is Elixir, Ethereum, and also Go.</h3>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://arhyth.github.io/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://arhyth.github.io/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://arhyth.github.io/code/"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/davidebreo" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:arhyth@gmail.com"><img class="icon" src="https://arhyth.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Shiny Shiny
+
+</div>
+
+                    <div class="initials"><a href="https://arhyth.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Dec 31 2018 14:31:25 PST'>Dec 31, 2018</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>4 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>Developers are obsessed with tools. It&rsquo;s our natural tendency. The capacity for toolmaking separates us from our less evolved counterparts in the biology tree &ndash; the ability to build on top of the existing, to refine the crude. It&rsquo;s only too easy to get too involved in the tools than in the &ldquo;building up&rdquo; that they should be used for.</p>
+
+<p>This past year I&rsquo;m glad to have reached a certain level of comfort with developer tooling that I was able to invest (I should say waste) my time learning other programming concepts, patterns and techniques. At work, we use the Elixir programming language for our backend services and while compared to other ecosystems, Javascript in particular, the leadership and community of Elixir takes a more opinionated approach to tooling, this did not prevent me from spending too much of my time &ldquo;researching&rdquo; about the hottest languages, frameworks, etc. In other words, yet more tooling. To be fair, it was my curiousity and chasing that rabbithole that led me to become a tech professional. It was only around a month earlier this time last year when I joined my current company as a junior web developer. It was luck not mastery. I was fortunate to get employed even with such haphazard means of learning. Moving forward, I need to be more disciplined and focused in the use of my time.</p>
+
+<p>Tooling and technology in general is an implementation detail. As developers, our ultimate goal is to create and expose value. If we are successful enough, the details don&rsquo;t matter. We do not obscure value with detail. This should be our objective as technologists, to shave away as much detail as possible. And yet many times, it is the opposite that rings true. Recent trends bring this problem to attention.</p>
+
+<p>For much of the hype the blockchain community has produced, a community I belong to only in periphery (our company develops blockchain connected products), it has yet to deliver any significant value for people outside its bubble. Most of the debates and discussions surrounding it revolve only around nuances of implementation. For blockchain to succeed, it needs to kill its own hype and focus its collective attention and brainpower on the massive <a href="https://threadreaderapp.com/thread/1078682801954799617.html">foundational work</a> that yet lay ahead. People should not forget blockchain technology, as cool as it is, is simply a tool like all other technology. Its value proposition is decentralized trust and security but they are not the goal. End-user apps should be able to build on top of those fundamentals.</p>
+
+<p>A few days ago, in a tech slack I was a member in, someone asked the group for advice on whether to pursue a career in game development or continue as a web developer as he feels he has already plateaued in his career and have recently become complacent. I had a sudden realization &ndash; people have the wrong (personal value judgement) mindset about technology. We end up building careers around technology because we optimize for mastery. It&rsquo;s not a bad aspiration, it&rsquo;s actually noble but that&rsquo;s not the point. But why did that guy feel so uninspired? What made him that way? My hunch, he lost touch with the value he built, and the people he built it for. Technology is so big in breadth and in depth, this is especially true for newcomers like myself, that simply keeping up with the trends is a feat in itself. Developers can build up careers by scaling up and down the slope of these tech trends but sooner or later that drive dies down. There is only so much meaning to be derived from following, learning, and conquering trends. It must be done for something, for someone. We need to be able to connect to that. If we cannot see or feel the value in what we create with the work that we do and the tools (however shiny they are) that we use, or are unable to share it with other people, we are wasting our time.</p>
+
+<p>This coming year my personal aim is to focus on value-creation (or product) driven learning. This means I will consciously avoid pursuing &ldquo;bling&rdquo; technology for the sake of curiousity. That also means, for the next few months I will need to channel my learning on software delivery in the tech stack I am already comfortable in. With that said and out of the way, happy shiny new year everyone!</p>
+
+                <br>
+                
+                <p class="back-to-posts"><a href="https://arhyth.github.io/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/elixir.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+
