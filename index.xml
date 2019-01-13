@@ -6,10 +6,20 @@
     <description>Recent content on David Ebreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 31 Dec 2018 14:31:25 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jan 2019 15:31:47 +0800</lastBuildDate>
     
 	<atom:link href="https://arhyth.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Talks We Love</title>
+      <link>https://arhyth.github.io/blog/talks-we-love/</link>
+      <pubDate>Sun, 13 Jan 2019 15:31:47 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/talks-we-love/</guid>
+      <description>Fascinating, inspirational, or challenging, one way or another.
+Bret Victor&amp;rsquo;s seminal talk Inventing on Principle   </description>
+    </item>
     
     <item>
       <title>Shiny Shiny</title>
