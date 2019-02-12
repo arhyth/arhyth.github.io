@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>New Lang Checklist</title>
+      <link>https://arhyth.github.io/blog/new-lang-checklist/</link>
+      <pubDate>Tue, 12 Feb 2019 21:28:45 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/new-lang-checklist/</guid>
+      <description>So You&amp;rsquo;re Learning a New Language Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&amp;rsquo;re bored at work and you realize you&amp;rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&amp;rsquo;ve got other stuff to do.</description>
+    </item>
+    
+    <item>
       <title>Talks We Love</title>
       <link>https://arhyth.github.io/blog/talks-we-love/</link>
       <pubDate>Sun, 13 Jan 2019 15:31:47 +0800</pubDate>
