@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>David Ebreo</title>
@@ -17,7 +17,8 @@
       <pubDate>Tue, 12 Feb 2019 21:28:45 +0800</pubDate>
       
       <guid>https://arhyth.github.io/blog/new-lang-checklist/</guid>
-      <description>So You&amp;rsquo;re Learning a New Language Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&amp;rsquo;re bored at work and you realize you&amp;rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&amp;rsquo;ve got other stuff to do.</description>
+      <description>So You&amp;rsquo;re Learning a New Language [ ] Primitive types [ ] Error Handling [ ] Dependency management [ ] Async and/or Concurrency [ ] Abstraction [ ] Tooling [ ] Testing
+Great! You want to learn a new language. You&amp;rsquo;re bored at work and you realize you&amp;rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it.</description>
     </item>
     
     <item>
@@ -56,7 +57,7 @@ This past year I&amp;rsquo;m glad to have reached a certain level of comfort wit
       
       <guid>https://arhyth.github.io/blog/pass-me-them-params/</guid>
       <description>Explicit is better than implicit.
-Zen of Python
+  Zen of Python
  Pass me them params In my previous job, writing scripts to automate some of the repetitive tasks got me back into the programming route which eventually led me to consider a career shift. To be honest, automating tasks was, at least upfront, more hard work than additional straight up keystrokes. And without guarantee that the time invested will return in any quality or amount of savings, especially for smaller tasks, it was a day&amp;rsquo;s work worth of risk.</description>
     </item>
     
@@ -67,7 +68,7 @@ Zen of Python
       
       <guid>https://arhyth.github.io/about/colophon/</guid>
       <description>This website is a personal homepage.
-The site is built with Hugo—a static site generator made with Go. The website source code is available on GitHub. It uses the cocoa theme. The posts are written in Markdown.
+The site is built with Hugo—a static site generator made with Go. The website source code is available on GitHub. It uses the cocoatheme. The posts are written in Markdown.
 The primary font face is Open Sans and the monospace font face is Ubuntu Mono. The social icons are from the Ionicons font set. CSS classes for code syntax highlighting are inserted during compile-time by Hugo using Pygments.</description>
     </item>
     
