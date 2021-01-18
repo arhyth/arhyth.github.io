@@ -6,10 +6,21 @@
     <description>Recent content on David Ebreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 12 Feb 2019 21:28:45 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Jan 2021 21:58:02 +0800</lastBuildDate>
     
 	<atom:link href="https://arhyth.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using multiple SSH Keys for Github</title>
+      <link>https://arhyth.github.io/blog/using-multiple-ssh-keys-for-github/</link>
+      <pubDate>Fri, 15 Jan 2021 21:58:02 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/using-multiple-ssh-keys-for-github/</guid>
+      <description>Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
+  Modify the ssh config file ( ~/.ssh/config) or create it if there isn&amp;rsquo;t one.
+  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.</description>
+    </item>
     
     <item>
       <title>New Lang Checklist</title>
