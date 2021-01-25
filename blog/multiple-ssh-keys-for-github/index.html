@@ -9,23 +9,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="David Ebreo">
-<meta name="description" content="New Language Checklist  Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&rsquo;re bored at work and you realize you&rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&rsquo;ve got other stuff to do.">
+<meta name="description" content="Using multiple SSH keys for Github   Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
+  Modify the ssh config file ( ~/.ssh/config) or create it if there isn&rsquo;t one.
+  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github.">
 
-<meta property="og:title" content="New Lang Checklist" />
-<meta property="og:description" content="New Language Checklist  Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&rsquo;re bored at work and you realize you&rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&rsquo;ve got other stuff to do." />
+<meta property="og:title" content="Multiple SSH Keys for Github" />
+<meta property="og:description" content="Using multiple SSH keys for Github   Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
+  Modify the ssh config file ( ~/.ssh/config) or create it if there isn&rsquo;t one.
+  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://arhyth.github.io/blog/new-lang-checklist/" />
-<meta property="article:published_time" content="2019-02-12T21:28:45+08:00" />
-<meta property="article:modified_time" content="2019-02-12T21:28:45+08:00" />
+<meta property="og:url" content="https://arhyth.github.io/blog/multiple-ssh-keys-for-github/" />
+<meta property="article:published_time" content="2021-01-15T21:58:02+08:00" />
+<meta property="article:modified_time" content="2021-01-15T21:58:02+08:00" />
 
 
 <title>
 
 
-     New Lang Checklist 
+     Multiple SSH Keys for Github 
 
 </title>
-<link rel="canonical" href="https://arhyth.github.io/blog/new-lang-checklist/">
+<link rel="canonical" href="https://arhyth.github.io/blog/multiple-ssh-keys-for-github/">
 
 
 
@@ -43,11 +47,11 @@
 
 
     
-    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-01-25%2000%3a57%3a43.498260249%20%2b0800%20PST%20m%3d%2b0.113768160">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-01-25%2000%3a57%3a43.498260249%20%2b0800%20PST%20m%3d%2b0.113768160">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-01-25%2000%3a57%3a43.498260249%20%2b0800%20PST%20m%3d%2b0.113768160">
     
-        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-01-25%2000%3a57%3a43.498260249%20%2b0800%20PST%20m%3d%2b0.113768160">
     
 
 
@@ -187,27 +191,57 @@ Preferred tech stack is Elixir and Go.</h3>
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Tue Feb 12 2019 21:28:45 PST'>Feb 12, 2019</div>
+                    <div class="date" title='Fri Jan 15 2021 21:58:02 PST'>Jan 15, 2021</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+		    <div class="reading-time"><div class="middot"></div>One minute read</div>
                     
                 </div>
             </div>
             <div class="markdown">
-                <h2 id="new-language-checklist">New Language Checklist</h2>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Primitive types</li>
-<li><input checked="" disabled="" type="checkbox"> Error Handling</li>
-<li><input checked="" disabled="" type="checkbox"> Dependency management</li>
-<li><input disabled="" type="checkbox"> Async and/or Concurrency</li>
-<li><input disabled="" type="checkbox"> Abstraction</li>
-<li><input disabled="" type="checkbox"> Tooling</li>
-<li><input disabled="" type="checkbox"> Testing</li>
-</ul>
-<p>Great! You want to learn a new language. You&rsquo;re bored at work and you realize you&rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&rsquo;ve got other stuff to do. Who learns them for fun anyway? You a nerd? :p</p>
-<p>Read the defacto &ldquo;bible&rdquo; of the language. A good rule of thumb for page count should be around 300-500 pages. Anything more is just too much detail that can be easily googled anyway. Start with the table of contents. DO NOT skip it. A good book&rsquo;s table of contents gives readers an idea what the whole book is about. For programming language textbooks, the table of contents summarizes the language API. That&rsquo;s a major productivity win. You get the gist of your new language powers in less than 10 pages.</p>
-<p>The checklist above is one I am using in learning Go. It&rsquo;s even shorter than a table of contents. Just learn enough about each item to distinguish differences in semantics (if any) between the language you&rsquo;re learning and any you already know. Do now worry about syntax. It will come with use. Once you have a basic understanding of the similarities/difference, move on to a different item. Try it and let me know if it works for you.</p>
+                <h2 id="using-multiple-ssh-keys-for-github">Using multiple SSH keys for Github</h2>
+<ol>
+<li>
+<p>Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.</p>
+</li>
+<li>
+<p>Modify the ssh config file ( ~/.ssh/config) or create it if there isn&rsquo;t one.</p>
+</li>
+</ol>
+<pre><code># Personal GitHub account
+Host github.com
+ HostName github.com
+ User git
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+
+# Work/other GitHub account 
+Host workhub
+ HostName github.com
+ User git
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/work_rsa
+</code></pre><p>The <code>host</code> alias defined in previous step may now be used to manage repos from both accounts.
+e.g.
+git URL without the alias: <code>git@github.com:&lt;organization&gt;/&lt;project&gt;.git</code>
+with it: <code>git@workhub:&lt;organization&gt;/&lt;project&gt;.git</code></p>
+<pre><code>$ git clone git@workhub:&lt;organization&gt;/&lt;project&gt;.git
+</code></pre><p>Extra: Git can be configured to also swap URLs so that the alias does not need to be specified when
+cloning/adding new repositories.
+e.g. <code>~/.gitconfig</code></p>
+<pre><code>[user]
+    name = David Ebreo
+    email = david@&lt;organization&gt;.com
+[core]
+    editor = vim
+[alias]
+    co = checkout
+[url &quot;ssh://git@workhub/&lt;organization&gt;&quot;]
+    insteadOf = git@github.com/&lt;organization&gt;
+
+</code></pre><p>Hope that&rsquo;s useful and clear enough. There are more detailed (and probably clearer) instructions out <a href="https://xiaolishen.medium.com/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693">there</a>. This here is mainly to jog my memmory when I forget how to do it.</p>
 
                 <br>
                 

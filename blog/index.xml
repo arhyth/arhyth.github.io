@@ -12,14 +12,24 @@
     
     
     <item>
-      <title>Using multiple SSH Keys for Github</title>
-      <link>https://arhyth.github.io/blog/using-multiple-ssh-keys-for-github/</link>
+      <title>The case of the crash looping pod</title>
+      <link>https://arhyth.github.io/blog/the-case-of-the-crash-looping-pod/</link>
+      <pubDate>Sun, 24 Jan 2021 19:26:51 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/the-case-of-the-crash-looping-pod/</guid>
+      <description>The case of the crash looping pod A few weeks ago at work we launched a new microservice which I had the opportunity to solely implement. Aside from some deserialization issues (an external API dependency with inconsistently typed response fields), everything seemed to be OK. Then it wasn&amp;rsquo;t. Our alerting system in GCP (Google Cloud) was on fire only hours after we went live.
+The pods were on a crash loop.</description>
+    </item>
+    
+    <item>
+      <title>Multiple SSH Keys for Github</title>
+      <link>https://arhyth.github.io/blog/multiple-ssh-keys-for-github/</link>
       <pubDate>Fri, 15 Jan 2021 21:58:02 +0800</pubDate>
       
-      <guid>https://arhyth.github.io/blog/using-multiple-ssh-keys-for-github/</guid>
-      <description>Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
+      <guid>https://arhyth.github.io/blog/multiple-ssh-keys-for-github/</guid>
+      <description>Using multiple SSH keys for Github   Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
   Modify the ssh config file ( ~/.ssh/config) or create it if there isn&amp;rsquo;t one.
-  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.</description>
+  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github.</description>
     </item>
     
     <item>
@@ -28,8 +38,7 @@
       <pubDate>Tue, 12 Feb 2019 21:28:45 +0800</pubDate>
       
       <guid>https://arhyth.github.io/blog/new-lang-checklist/</guid>
-      <description>So You&amp;rsquo;re Learning a New Language [ ] Primitive types [ ] Error Handling [ ] Dependency management [ ] Async and/or Concurrency [ ] Abstraction [ ] Tooling [ ] Testing
-Great! You want to learn a new language. You&amp;rsquo;re bored at work and you realize you&amp;rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it.</description>
+      <description>New Language Checklist  Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&amp;rsquo;re bored at work and you realize you&amp;rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&amp;rsquo;ve got other stuff to do.</description>
     </item>
     
     <item>

@@ -9,23 +9,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="David Ebreo">
-<meta name="description" content="New Language Checklist  Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&rsquo;re bored at work and you realize you&rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&rsquo;ve got other stuff to do.">
+<meta name="description" content="The case of the crash looping pod A few weeks ago at work we launched a new microservice which I had the opportunity to solely implement. Aside from some deserialization issues (an external API dependency with inconsistently typed response fields), everything seemed to be OK. Then it wasn&rsquo;t. Our alerting system in GCP (Google Cloud) was on fire only hours after we went live.
+The pods were on a crash loop.">
 
-<meta property="og:title" content="New Lang Checklist" />
-<meta property="og:description" content="New Language Checklist  Primitive types Error Handling Dependency management Async and/or Concurrency Abstraction Tooling Testing  Great! You want to learn a new language. You&rsquo;re bored at work and you realize you&rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&rsquo;ve got other stuff to do." />
+<meta property="og:title" content="The case of the crash looping pod" />
+<meta property="og:description" content="The case of the crash looping pod A few weeks ago at work we launched a new microservice which I had the opportunity to solely implement. Aside from some deserialization issues (an external API dependency with inconsistently typed response fields), everything seemed to be OK. Then it wasn&rsquo;t. Our alerting system in GCP (Google Cloud) was on fire only hours after we went live.
+The pods were on a crash loop." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://arhyth.github.io/blog/new-lang-checklist/" />
-<meta property="article:published_time" content="2019-02-12T21:28:45+08:00" />
-<meta property="article:modified_time" content="2019-02-12T21:28:45+08:00" />
+<meta property="og:url" content="https://arhyth.github.io/blog/the-case-of-the-crash-looping-pod/" />
+<meta property="article:published_time" content="2021-01-24T19:26:51+08:00" />
+<meta property="article:modified_time" content="2021-01-24T19:26:51+08:00" />
 
 
 <title>
 
 
-     New Lang Checklist 
+     The case of the crash looping pod 
 
 </title>
-<link rel="canonical" href="https://arhyth.github.io/blog/new-lang-checklist/">
+<link rel="canonical" href="https://arhyth.github.io/blog/the-case-of-the-crash-looping-pod/">
 
 
 
@@ -43,11 +45,11 @@
 
 
     
-    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-01-25%2000%3a57%3a43.492780131%20%2b0800%20PST%20m%3d%2b0.108288037">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-01-25%2000%3a57%3a43.492780131%20%2b0800%20PST%20m%3d%2b0.108288037">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-01-25%2000%3a57%3a43.492780131%20%2b0800%20PST%20m%3d%2b0.108288037">
     
-        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-01-25%2000%3a57%3a43.492965017%20%2b0800%20PST%20m%3d%2b0.108472939">
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-01-25%2000%3a57%3a43.492780131%20%2b0800%20PST%20m%3d%2b0.108288037">
     
 
 
@@ -187,27 +189,21 @@ Preferred tech stack is Elixir and Go.</h3>
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Tue Feb 12 2019 21:28:45 PST'>Feb 12, 2019</div>
+                    <div class="date" title='Sun Jan 24 2021 19:26:51 PST'>Jan 24, 2021</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
                     
                 </div>
             </div>
             <div class="markdown">
-                <h2 id="new-language-checklist">New Language Checklist</h2>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Primitive types</li>
-<li><input checked="" disabled="" type="checkbox"> Error Handling</li>
-<li><input checked="" disabled="" type="checkbox"> Dependency management</li>
-<li><input disabled="" type="checkbox"> Async and/or Concurrency</li>
-<li><input disabled="" type="checkbox"> Abstraction</li>
-<li><input disabled="" type="checkbox"> Tooling</li>
-<li><input disabled="" type="checkbox"> Testing</li>
-</ul>
-<p>Great! You want to learn a new language. You&rsquo;re bored at work and you realize you&rsquo;re current workhorse is limiting, or the stack at your new gig uses this weird esoteric stuff with too many parentheses and you hope you could understand even just some part of it. Either way, you want to learn one as efficiently as possible coz you&rsquo;ve got other stuff to do. Who learns them for fun anyway? You a nerd? :p</p>
-<p>Read the defacto &ldquo;bible&rdquo; of the language. A good rule of thumb for page count should be around 300-500 pages. Anything more is just too much detail that can be easily googled anyway. Start with the table of contents. DO NOT skip it. A good book&rsquo;s table of contents gives readers an idea what the whole book is about. For programming language textbooks, the table of contents summarizes the language API. That&rsquo;s a major productivity win. You get the gist of your new language powers in less than 10 pages.</p>
-<p>The checklist above is one I am using in learning Go. It&rsquo;s even shorter than a table of contents. Just learn enough about each item to distinguish differences in semantics (if any) between the language you&rsquo;re learning and any you already know. Do now worry about syntax. It will come with use. Once you have a basic understanding of the similarities/difference, move on to a different item. Try it and let me know if it works for you.</p>
+                <h2 id="the-case-of-the-crash-looping-pod">The case of the crash looping pod</h2>
+<p>A few weeks ago at work we launched a new microservice which I had the opportunity to solely implement. Aside from some deserialization issues (an external API dependency with inconsistently typed response fields), everything seemed to be OK. Then it wasn&rsquo;t. Our alerting system in GCP (Google Cloud) was on fire only hours after we went live.</p>
+<p>The pods were on a crash loop. And there were no logged errors on Stackdriver.</p>
+<p>I added all sorts of error logging and a few <code>recover()</code> in critical places. (Yes. This would probably be less painful if we had distributed tracing in place. We make do.) But still, there was nothing. There was something curious though, the <code>info</code> logs for inbound requests did not match the outbound requests. The crash involved only one endpoint that accepts an array, among other fields, and for each of the items in the array, the service makes one external call. Initially, I attributed this to the crash dropping the other calls and assumed it to also be the case for the &ldquo;missing&rdquo; <code>error</code> logs. I eventually learned this assumption to be incorrect. There were really no error logs because there were no errors.</p>
+<p>We found a hint in the <code>events</code> tab of the corresponding Kubernetes workload in GCP console. The workload would fail a <code>healthcheck</code>probe before a &ldquo;crash&rdquo;. This was tricky to catch because Kubernetes events are stored in the apiserver and by default are not persisted and kept only for an hour. You might have already noticed I enclosed &ldquo;crash&rdquo; in double quotes. We didn&rsquo;t immediately realize what was happening to the pods. I had correctly implemented and exposed the healthcheck endpoint. We could call it just fine. We left it as is for a day or two since the crashes were not really business critical and we were also out of ideas.</p>
+<p>Then we discovered the latency problem. On requests with very big arrays previously mentioned, the latency spikes were much higher than other services usual response times. This led me to another discovery. The response time for the healthcheck endpoint would range north of 1s when the request is made concurrent to a &ldquo;big array&rdquo; request. A usual response time for a healthcheck probe would only range in the order of 10ms to 100ms. In short, &ldquo;big array&rdquo; requests were starving healthcheck probes. This was the lightbulb moment. So I asked what are default GKE/Kubernetes timeout config, if any. I then learned that in Kubernetes by default workloads have a healthcheck probe timeout of 1s and a retry of 3. Failing this, the scheduler would garbage collect the &ldquo;unhealthy&rdquo; pod and deploy a fresh instance. Thus the crash loop.</p>
+<p>Bumping resource limits and timeout up a few solved this.</p>
 
                 <br>
                 

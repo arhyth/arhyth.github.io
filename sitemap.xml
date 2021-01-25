@@ -4,11 +4,16 @@
   
   <url>
     <loc>https://arhyth.github.io/</loc>
-    <lastmod>2021-01-15T21:58:02+08:00</lastmod>
+    <lastmod>2021-01-24T19:26:51+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://arhyth.github.io/blog/using-multiple-ssh-keys-for-github/</loc>
+    <loc>https://arhyth.github.io/blog/the-case-of-the-crash-looping-pod/</loc>
+    <lastmod>2021-01-24T19:26:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://arhyth.github.io/blog/multiple-ssh-keys-for-github/</loc>
     <lastmod>2021-01-15T21:58:02+08:00</lastmod>
   </url>
   
@@ -50,11 +55,6 @@
   <url>
     <loc>https://arhyth.github.io/blog/</loc>
     <lastmod>2015-08-22T06:42:21-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://arhyth.github.io/about/colophon/</loc>
-    <lastmod>2015-08-22T06:28:26-07:00</lastmod>
   </url>
   
   <url>
