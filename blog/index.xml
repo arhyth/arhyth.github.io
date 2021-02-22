@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Awesome tech blogs</title>
+      <link>https://arhyth.github.io/blog/awesome-tech-blogs/</link>
+      <pubDate>Sun, 21 Feb 2021 22:22:41 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/awesome-tech-blogs/</guid>
+      <description>Awesome technical blogs Writing down just recent ones from memory for now. This is a growing list.
+Personal  Dan Luu&amp;rsquo;s blog Will Larson&amp;rsquo;s blog the morning paper by Adrian Colyer. ELI20 for technical papers StaffEng by Will Larson brandur.org I don&amp;rsquo;t know whose this is but it&amp;rsquo;s great Nelson Elhage&amp;rsquo;s blog Eugene Wei&amp;rsquo;s blog. for stuff on product/strategy High Scalability by Todd Hoff Simon Eskildsen&amp;rsquo;s blog  Corporate  Dropbox Stripe Shopify Uber  Specific articles  The Dark Resistance Invisible Asymptotes Shitlists Choose Boring Technology  </description>
+    </item>
+    
+    <item>
       <title>The case of the crash looping pod</title>
       <link>https://arhyth.github.io/blog/the-case-of-the-crash-looping-pod/</link>
       <pubDate>Sun, 24 Jan 2021 19:26:51 +0800</pubDate>

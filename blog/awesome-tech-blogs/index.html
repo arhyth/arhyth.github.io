@@ -9,27 +9,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="David Ebreo">
-<meta name="description" content="Using multiple SSH keys for Github   Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
-  Modify the ssh config file ( ~/.ssh/config) or create it if there isn&rsquo;t one.
-  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github.">
+<meta name="description" content="Awesome technical blogs Writing down just recent ones from memory for now. This is a growing list.
+Personal  Dan Luu&rsquo;s blog Will Larson&rsquo;s blog the morning paper by Adrian Colyer. ELI20 for technical papers StaffEng by Will Larson brandur.org I don&rsquo;t know whose this is but it&rsquo;s great Nelson Elhage&rsquo;s blog Eugene Wei&rsquo;s blog. for stuff on product/strategy High Scalability by Todd Hoff Simon Eskildsen&rsquo;s blog  Corporate  Dropbox Stripe Shopify Uber  Specific articles  The Dark Resistance Invisible Asymptotes Shitlists Choose Boring Technology  ">
 
-<meta property="og:title" content="Multiple SSH Keys for Github" />
-<meta property="og:description" content="Using multiple SSH keys for Github   Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.
-  Modify the ssh config file ( ~/.ssh/config) or create it if there isn&rsquo;t one.
-  # Personal GitHub account Host github.com HostName github.com User git AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_rsa # Work/other GitHub account Host workhub HostName github." />
+<meta property="og:title" content="Awesome tech blogs" />
+<meta property="og:description" content="Awesome technical blogs Writing down just recent ones from memory for now. This is a growing list.
+Personal  Dan Luu&rsquo;s blog Will Larson&rsquo;s blog the morning paper by Adrian Colyer. ELI20 for technical papers StaffEng by Will Larson brandur.org I don&rsquo;t know whose this is but it&rsquo;s great Nelson Elhage&rsquo;s blog Eugene Wei&rsquo;s blog. for stuff on product/strategy High Scalability by Todd Hoff Simon Eskildsen&rsquo;s blog  Corporate  Dropbox Stripe Shopify Uber  Specific articles  The Dark Resistance Invisible Asymptotes Shitlists Choose Boring Technology  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://arhyth.github.io/blog/multiple-ssh-keys-for-github/" />
-<meta property="article:published_time" content="2021-01-15T21:58:02+08:00" />
-<meta property="article:modified_time" content="2021-01-15T21:58:02+08:00" />
+<meta property="og:url" content="https://arhyth.github.io/blog/awesome-tech-blogs/" />
+<meta property="article:published_time" content="2021-02-21T22:22:41+08:00" />
+<meta property="article:modified_time" content="2021-02-21T22:22:41+08:00" />
 
 
 <title>
 
 
-     Multiple SSH Keys for Github 
+     Awesome tech blogs 
 
 </title>
-<link rel="canonical" href="https://arhyth.github.io/blog/multiple-ssh-keys-for-github/">
+<link rel="canonical" href="https://arhyth.github.io/blog/awesome-tech-blogs/">
 
 
 
@@ -47,11 +45,11 @@
 
 
     
-    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-02-22%2009%3a46%3a32.987929787%20%2b0800%20PST%20m%3d%2b0.096999814">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-02-22%2009%3a46%3a32.987929787%20%2b0800%20PST%20m%3d%2b0.096999814">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-02-22%2009%3a46%3a32.987929787%20%2b0800%20PST%20m%3d%2b0.096999814">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-02-22%2009%3a46%3a32.987943783%20%2b0800%20PST%20m%3d%2b0.097013802">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-02-22%2009%3a46%3a32.987943783%20%2b0800%20PST%20m%3d%2b0.097013802">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-02-22%2009%3a46%3a32.987943783%20%2b0800%20PST%20m%3d%2b0.097013802">
     
-        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-02-22%2009%3a46%3a32.987929787%20%2b0800%20PST%20m%3d%2b0.096999814">
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-02-22%2009%3a46%3a32.987943783%20%2b0800%20PST%20m%3d%2b0.097013802">
     
 
 
@@ -191,7 +189,7 @@ Preferred tech stack is Elixir and Go.</h3>
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Fri Jan 15 2021 21:58:02 PST'>Jan 15, 2021</div>
+                    <div class="date" title='Sun Feb 21 2021 22:22:41 PST'>Feb 21, 2021</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>One minute read</div>
@@ -199,49 +197,34 @@ Preferred tech stack is Elixir and Go.</h3>
                 </div>
             </div>
             <div class="markdown">
-                <h2 id="using-multiple-ssh-keys-for-github">Using multiple SSH keys for Github</h2>
-<ol>
-<li>
-<p>Create separate SSH keys and add them to appropriate Github account settings. Make sure they are easily distinguishable from each other.</p>
-</li>
-<li>
-<p>Modify the ssh config file ( ~/.ssh/config) or create it if there isn&rsquo;t one.</p>
-</li>
-</ol>
-<pre><code># Personal GitHub account
-Host github.com
- HostName github.com
- User git
- AddKeysToAgent yes
- UseKeychain yes
- IdentityFile ~/.ssh/id_rsa
-
-# Work/other GitHub account 
-Host workhub
- HostName github.com
- User git
- AddKeysToAgent yes
- UseKeychain yes
- IdentityFile ~/.ssh/work_rsa
-</code></pre><p>The <code>host</code> alias defined in previous step may now be used to manage repos from both accounts.
-e.g.
-git URL without the alias: <code>git@github.com:&lt;organization&gt;/&lt;project&gt;.git</code>
-with it: <code>git@workhub:&lt;organization&gt;/&lt;project&gt;.git</code></p>
-<pre><code>$ git clone git@workhub:&lt;organization&gt;/&lt;project&gt;.git
-</code></pre><p>Extra: Git can be configured to also swap URLs so that the alias does not need to be specified when
-cloning/adding new repositories.
-e.g. <code>~/.gitconfig</code></p>
-<pre><code>[user]
-    name = David Ebreo
-    email = david@&lt;organization&gt;.com
-[core]
-    editor = vim
-[alias]
-    co = checkout
-[url &quot;ssh://git@workhub/&lt;organization&gt;&quot;]
-    insteadOf = git@github.com/&lt;organization&gt;
-
-</code></pre><p>Hope that&rsquo;s useful and clear enough. There are more detailed (and probably clearer) instructions out <a href="https://xiaolishen.medium.com/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693">there</a>. This here is mainly to jog my memmory when I forget how to do it.</p>
+                <h1 id="awesome-technical-blogs">Awesome technical blogs</h1>
+<p>Writing down just recent ones from memory for now. This is a growing list.</p>
+<h2 id="personal">Personal</h2>
+<ul>
+<li><a href="https://danluu.com/">Dan Luu&rsquo;s blog</a></li>
+<li><a href="https://lethain.com/">Will Larson&rsquo;s blog</a></li>
+<li><a href="https://blog.acolyer.org/">the morning paper</a> by Adrian Colyer. ELI20 for technical papers</li>
+<li><a href="https://staffeng.com/">StaffEng</a> by Will Larson</li>
+<li><a href="https://brandur.org/articles">brandur.org</a> I don&rsquo;t know whose this is but it&rsquo;s great</li>
+<li><a href="https://blog.nelhage.com/post/">Nelson Elhage&rsquo;s blog</a></li>
+<li><a href="https://www.eugenewei.com/">Eugene Wei&rsquo;s blog</a>. for stuff on product/strategy</li>
+<li><a href="http://highscalability.com/">High Scalability</a> by Todd Hoff</li>
+<li><a href="https://sirupsen.com/">Simon Eskildsen&rsquo;s blog</a></li>
+</ul>
+<h2 id="corporate">Corporate</h2>
+<ul>
+<li><a href="https://dropbox.tech/">Dropbox</a></li>
+<li><a href="https://stripe.com/blog/engineering">Stripe</a></li>
+<li><a href="https://shopify.engineering/topics/infrastructure">Shopify</a></li>
+<li><a href="https://eng.uber.com/">Uber</a></li>
+</ul>
+<h2 id="specific-articles">Specific articles</h2>
+<ul>
+<li><a href="https://dr-knz.net/dark-resistance.html">The Dark Resistance</a></li>
+<li><a href="https://www.eugenewei.com/blog/2018/5/21/invisible-asymptotes">Invisible Asymptotes</a></li>
+<li><a href="https://sirupsen.com/shitlists/">Shitlists</a></li>
+<li><a href="https://mcfunley.com/choose-boring-technology">Choose Boring Technology</a></li>
+</ul>
 
                 <br>
                 
