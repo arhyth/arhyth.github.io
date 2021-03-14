@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="David Ebreo">
+<meta name="description" content="Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.
+Clients of cached components/services do not need to know about caching. They could care less if it&rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory.">
+
+<meta property="og:title" content="Cache Near Your Source" />
+<meta property="og:description" content="Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.
+Clients of cached components/services do not need to know about caching. They could care less if it&rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arhyth.github.io/blog/cache-near-your-source/" />
+<meta property="article:published_time" content="2021-03-13T10:35:21+08:00" />
+<meta property="article:modified_time" content="2021-03-13T10:35:21+08:00" />
+
+
+<title>
+
+
+     Cache Near Your Source 
+
+</title>
+<link rel="canonical" href="https://arhyth.github.io/blog/cache-near-your-source/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/darcula.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Fira+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
+    
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://arhyth.github.io/img/double_sided_eraser.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://arhyth.github.io/"><img class="avatar" src="https://arhyth.github.io/img/profile.jpg" srcset="https://arhyth.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://arhyth.github.io/"><div class="name">David Ebreo</div></a>
+            
+              <h3 class="self-intro">A traditional engineer in a past life, now working his way to singularity, errrm... software. 
+Preferred tech stack is Elixir and Go.</h3>
+            
+            <nav>
+                
+                <ul>
+                    
+                        
+                        
+                        
+                            <li class="nav-blog"><a href="https://arhyth.github.io/blog/"><span style="color:#191d22"><u>Blog</u></span></a></li>
+                        
+                    
+                        
+                        
+                        
+                            <li class="nav-about"><a href="https://arhyth.github.io/about/"><span>About</span></a></li>
+                        
+                    
+                        
+                        
+                        
+                            <li class="nav-code"><a href="https://arhyth.github.io/code/"><span>Code</span></a></li>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+            <a href="//twitter.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/davidebreo" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/arhyth" target="_blank" rel="noopener"><img class="icon" src="https://arhyth.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:arhyth@gmail.com"><img class="icon" src="https://arhyth.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+    
+
+</div>
+
+                    <div class="initials"><a href="https://arhyth.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat Mar 13 2021 10:35:21 &#43;0800'>Mar 13, 2021</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <h1 id="cache-near-your-source">Cache near your source</h1>
+<!-- raw HTML omitted -->
+<p>At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.</p>
+<p>Clients of cached components/services do not need to know about caching. They could care less if it&rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory. This is a property and the main selling point of interfaces.</p>
+<h2 id="share-the-same-interface">Share the same interface</h2>
+<p>You can make all sorts of optimization between a source and its cache because these details are hidden behind an interface. On the other hand, the farther away (in layers of abstraction) a cache is from its source, the more complexity it eventually (it has to) leaks to the whole system.</p>
+<p>Consider <code>System C</code> above which depends on <code>Component A</code> and <code>Component B</code>. The two components share the same interface but have different implementations. <code>System C</code> is not aware that the two components have their own cache. From <code>System C</code> perspective, how the sources interact with their own cache (sca, scb) or even whether the caches exist or not does not matter.</p>
+<pre><code class="language-ascii" data-lang="ascii">┌──────────────────┐
+│      Component A │
+│  ┌─────────┐     │◄─────────┐
+│  │ Source  │     │          │
+│  └─┬───────┤ sca │          │
+│    ├───────┴─┐   │          │
+│    │  Cache  │   │       ┌──┴──────────┐
+│    └─────────┘   │       │             │
+│                  │       │             │
+└──────────────────┘       │             │
+                           │             │
+                           │  System C   │
+                           │             │
+┌──────────────────┐       │             │
+│      Component B │       │             │
+│  ┌─────────┐     │       │             │
+│  │ Source  │     │       └──┬──────────┘
+│  └─┬───────┤ scb │          │
+│    ├───────┴─┐   │          │
+│    │  Cache  │   │◄─────────┘
+│    └─────────┘   │
+│                  │
+└──────────────────┘
+</code></pre><p>Let&rsquo;s then say that as service owners of <code>System C</code> we decided we would like it to have its own cache to avoid calling the components, whenever possible. By doing that, however, we would be trading off clear separation of concerns for a few 10/100/ms of latency. <code>System C</code> would have to provide an API (sca', scb') for each of the components to invalidate/update the cache similar to how the component communicates with its cache internally.</p>
+<pre><code class="language-ascii" data-lang="ascii">┌──────────────────┐
+│      Component A │
+│  ┌─────────┐     │◄─────────┐
+│  │ Source  │     │          │
+│  └─────────┘     │          │
+│                  │          │
+└──────────┬───────┘   ┌───┬──┴──────────┐
+           │           │ c │             │
+      sca' └──────────►│   │             │
+                       │ a │             │
+                       │   │             │
+      scb' ┌──────────►│ c │  System C   │
+           │           │   │             │
+┌──────────┴───────┐   │ h │             │
+│      Component B │   │   │             │
+│  ┌─────────┐     │   │ e │             │
+│  │ Source  │     │   └───┴──┬──────────┘
+│  └─┬───────┤ scb │          │
+│    ├───────┴─┐   │          │
+│    │  Cache  │   │◄─────────┘
+│    └─────────┘   │
+│                  │
+└──────────────────┘
+</code></pre><p>Notice that when the cache was colocated with the source, the data flow across components was unidirectional. It would be easy to dismiss this difference as trivial but add in another layer of abstraction between <code>System C</code> and the source components and the data flows easily gets hairy.</p>
+
+                <br>
+                
+                <p class="back-to-posts"><a href="https://arhyth.github.io/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/elixir.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+
+</body>
+</html>
+

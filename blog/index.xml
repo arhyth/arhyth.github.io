@@ -6,10 +6,16 @@
     <description>Recent content in Blog on David Ebreo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate>
-    
-	<atom:link href="https://arhyth.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate><atom:link href="https://arhyth.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cache Near Your Source</title>
+      <link>https://arhyth.github.io/blog/cache-near-your-source/</link>
+      <pubDate>Sat, 13 Mar 2021 10:35:21 +0800</pubDate>
+      
+      <guid>https://arhyth.github.io/blog/cache-near-your-source/</guid>
+      <description>Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.
+Clients of cached components/services do not need to know about caching. They could care less if it&amp;rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory.</description>
+    </item>
     
     <item>
       <title>Awesome tech blogs</title>
@@ -18,7 +24,7 @@
       
       <guid>https://arhyth.github.io/blog/awesome-tech-blogs/</guid>
       <description>Awesome technical blogs Writing down just recent ones from memory for now. This is a growing list.
-Personal  Dan Luu&amp;rsquo;s blog Will Larson&amp;rsquo;s blog the morning paper by Adrian Colyer. ELI20 for technical papers StaffEng by Will Larson brandur.org I don&amp;rsquo;t know whose this is but it&amp;rsquo;s great Nelson Elhage&amp;rsquo;s blog Eugene Wei&amp;rsquo;s blog. for stuff on product/strategy High Scalability by Todd Hoff Simon Eskildsen&amp;rsquo;s blog  Corporate  Dropbox Stripe Shopify Uber  Specific articles  The Dark Resistance Invisible Asymptotes Shitlists Choose Boring Technology  </description>
+Personal  Dan Luu Will Larson the morning paper by Adrian Colyer. ELI20 for technical papers StaffEng by Will Larson brandur.org I don&amp;rsquo;t know whose this is but it&amp;rsquo;s great Nelson Elhage Eugene Wei. for stuff on product/strategy High Scalability by Todd Hoff Simon Eskildsen  Corporate  Dropbox Stripe Shopify Uber  Specific articles  The Dark Resistance Invisible Asymptotes Shitlists Choose Boring Technology  </description>
     </item>
     
     <item>

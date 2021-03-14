@@ -42,16 +42,16 @@
 
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Fira+Mono:400,400i,700,700i|Raleway:500">
 
 
 
     
-    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-02-22%2009%3a46%3a33.00020422%20%2b0800%20PST%20m%3d%2b0.109274284">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-02-22%2009%3a46%3a33.00020422%20%2b0800%20PST%20m%3d%2b0.109274284">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-02-22%2009%3a46%3a33.00020422%20%2b0800%20PST%20m%3d%2b0.109274284">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-03-14%2012%3a46%3a39.297084585%20%2b0000%20UTC%20m%3d%2b2.112774646">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-03-14%2012%3a46%3a39.297084585%20%2b0000%20UTC%20m%3d%2b2.112774646">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-03-14%2012%3a46%3a39.297084585%20%2b0000%20UTC%20m%3d%2b2.112774646">
     
-        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-02-22%2009%3a46%3a33.00020422%20%2b0800%20PST%20m%3d%2b0.109274284">
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-03-14%2012%3a46%3a39.297084585%20%2b0000%20UTC%20m%3d%2b2.112774646">
     
 
 
@@ -191,7 +191,7 @@ Preferred tech stack is Elixir and Go.</h3>
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Sat Dec 1 2018 17:41:15 PST'>Dec 1, 2018</div>
+                    <div class="date" title='Sat Dec 1 2018 17:41:15 &#43;0800'>Dec 1, 2018</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>3 minutes read</div>
@@ -208,20 +208,20 @@ Preferred tech stack is Elixir and Go.</h3>
 <h2 id="pass-me-them-params">Pass me them params</h2>
 <p>In my previous job, writing scripts to automate some of the repetitive tasks got me back into the programming route which eventually led me to consider a <a href="https://arhyth.github.io/about">career shift</a>. To be honest, automating tasks was, at least upfront, more hard work than additional straight up keystrokes. And without guarantee that the time invested will return in any quality or amount of savings, especially for smaller tasks, it was a day&rsquo;s work worth of risk. But it was fun and for most of the time it got the job done. It was also a lot of hacking. In hindsight I realize, nothing of what I created that time was reusable. Many were just one-off scripts that I had to manually edit as often as I run them because I had hardcoded variable information instead of exposing them properly as parameters.</p>
 <p>Any good software is only as good as its interface. For users, it&rsquo;s UI and the &ldquo;frontend&rdquo;; for programmers, it&rsquo;s parameters. Functions and their parameters are what technology people mean when they say &ldquo;API&rdquo;. But what about parameters make them any good? Let&rsquo;s imagine a <code>list_activities</code> function.</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">params</span> <span class="p">\\</span> <span class="p">[])</span> <span class="n">do</span>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="kd">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">params</span> <span class="p">\\</span> <span class="p">[])</span> <span class="k">do</span>
   <span class="n">sort_params</span> <span class="o">=</span>
     <span class="n">params</span>
-    <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fn</span> <span class="p">{</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">k</span> <span class="n">in</span> <span class="p">[</span><span class="ss">:asc</span><span class="p">,</span> <span class="ss">:desc</span><span class="p">]</span> <span class="n">end</span><span class="p">)</span>
-    <span class="o">|&gt;</span> <span class="n">case</span> <span class="n">do</span>
+    <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">fn</span> <span class="p">{</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="ss">:asc</span><span class="p">,</span> <span class="ss">:desc</span><span class="p">]</span> <span class="k">end</span><span class="p">)</span>
+    <span class="o">|&gt;</span> <span class="k">case</span> <span class="k">do</span>
       <span class="p">[]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="ss">:desc</span><span class="p">,</span> <span class="ss">:id</span><span class="p">]</span> <span class="c1"># default case</span>
       <span class="n">order</span> <span class="o">-&gt;</span> <span class="n">order</span>
-    <span class="n">end</span>
+    <span class="k">end</span>
 
   <span class="nc">Activities</span>
   <span class="o">|&gt;</span> <span class="n">order_by</span><span class="p">(</span><span class="n">sort_params</span><span class="p">)</span>
   <span class="o">|&gt;</span> <span class="n">other_query_fn</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
   <span class="o">|&gt;</span> <span class="nc">Repo</span><span class="o">.</span><span class="n">paginate</span><span class="p">()</span>
-<span class="n">end</span>
+<span class="k">end</span>
 </code></pre></div><h3 id="options">Options</h3>
 <p>Good parameters are parameters you don&rsquo;t need to write. In our example, the function is defined with an optional keyword list param. But specific activities may be filtered by defining the param keys <code>:asc</code> and <code>desc</code> such that any of the following calls are also valid</p>
 <div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">list_activities</span><span class="p">(</span><span class="ss">asc</span><span class="p">:</span> <span class="ss">:inserted_at</span><span class="p">)</span>
@@ -234,11 +234,11 @@ Preferred tech stack is Elixir and Go.</h3>
 </code></pre></div><p>This way the caller is prevented from reaching for parameter details and provide them only as needed. As a rule of thumb, you may make default any parameter that covers the most common case for your application.</p>
 <h2 id="names">Names</h2>
 <p>Good parameters are called by their name. If possible, meanings should depend only on their names by calling their specific keys rather than by the order they are called.</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">type</span> <span class="p">\\</span> <span class="ss">:sports</span><span class="p">,</span> <span class="n">order</span> <span class="p">\\</span> <span class="ss">:asc</span><span class="p">,</span> <span class="n">field</span> <span class="p">\\</span> <span class="ss">:inserted_at</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="kd">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">type</span> <span class="p">\\</span> <span class="ss">:sports</span><span class="p">,</span> <span class="n">order</span> <span class="p">\\</span> <span class="ss">:asc</span><span class="p">,</span> <span class="n">field</span> <span class="p">\\</span> <span class="ss">:inserted_at</span><span class="p">)</span>
 </code></pre></div><p>where the client code calling that could easily be calling with this and will most probably result in a runtime error</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">type</span> <span class="p">\\</span> <span class="ss">:sports</span><span class="p">,</span> <span class="n">field</span> <span class="p">\\</span> <span class="ss">:inserted_at</span><span class="p">,</span> <span class="n">order</span> <span class="p">\\</span> <span class="ss">:asc</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="kd">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">type</span> <span class="p">\\</span> <span class="ss">:sports</span><span class="p">,</span> <span class="n">field</span> <span class="p">\\</span> <span class="ss">:inserted_at</span><span class="p">,</span> <span class="n">order</span> <span class="p">\\</span> <span class="ss">:asc</span><span class="p">)</span>
 </code></pre></div><p>Do this instead</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">params</span> <span class="p">\\</span> <span class="p">[</span><span class="ss">type</span><span class="p">:</span> <span class="ss">:sports</span><span class="p">,</span> <span class="ss">field</span><span class="p">:</span> <span class="ss">:inserted_at</span><span class="p">,</span> <span class="ss">order</span><span class="p">:</span> <span class="ss">:asc</span><span class="p">])</span>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="kd">def</span> <span class="n">list_activities</span><span class="p">(</span><span class="n">params</span> <span class="p">\\</span> <span class="p">[</span><span class="ss">type</span><span class="p">:</span> <span class="ss">:sports</span><span class="p">,</span> <span class="ss">field</span><span class="p">:</span> <span class="ss">:inserted_at</span><span class="p">,</span> <span class="ss">order</span><span class="p">:</span> <span class="ss">:asc</span><span class="p">])</span>
 </code></pre></div>
                 <br>
                 

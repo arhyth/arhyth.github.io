@@ -38,16 +38,16 @@
 
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Fira+Mono:400,400i,700,700i|Raleway:500">
 
 
 
     
-    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-02-22%2009%3a46%3a33.021274191%20%2b0800%20PST%20m%3d%2b0.130344275">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-02-22%2009%3a46%3a33.021274191%20%2b0800%20PST%20m%3d%2b0.130344275">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-02-22%2009%3a46%3a33.021274191%20%2b0800%20PST%20m%3d%2b0.130344275">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-03-14%2012%3a46%3a39.30711816%20%2b0000%20UTC%20m%3d%2b2.122808221">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-03-14%2012%3a46%3a39.30711816%20%2b0000%20UTC%20m%3d%2b2.122808221">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-03-14%2012%3a46%3a39.30711816%20%2b0000%20UTC%20m%3d%2b2.122808221">
     
-        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-02-22%2009%3a46%3a33.021274191%20%2b0800%20PST%20m%3d%2b0.130344275">
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-03-14%2012%3a46%3a39.30711816%20%2b0000%20UTC%20m%3d%2b2.122808221">
     
 
 
@@ -182,13 +182,13 @@ Preferred tech stack is Elixir and Go.</h3>
 
             <div class="markdown">
                 <p>This solution turned out much longer and even more complicated than I had hoped it would. My solutions for previous days involved pipelines of Enum functions and I purposely avoided going that route as they looked less intelligible with every additional line of anonymous iteration. I had hoped writing around &ldquo;names&rdquo; ala OOP would lend to a shorter and far more readable code. BurntSushi&rsquo;s <a href="https://github.com/BurntSushi/advent-of-code/blob/master/aoc03/src/main.rs">elegant implementation in Rust</a> seemed ideal. However, the clarity of having names to code around quickly diluted with writing custom type boilerplate and this also due to Elixir having no actual types. Where the Rust implementation had names referring to vector types, my implementation has structs for names which are basically maps and so much of the code was working around (I would even say, against, in hindsight) this limitation &ndash; where I really wanted a list I got a list inside a map.</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">defmodule</span> <span class="nc">Grid</span> <span class="n">do</span>
-  <span class="n">defstruct</span> <span class="ss">grid</span><span class="p">:</span> <span class="p">%{}</span>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="kd">defmodule</span> <span class="nc">Grid</span> <span class="k">do</span>
+  <span class="kd">defstruct</span> <span class="ss">grid</span><span class="p">:</span> <span class="p">%{}</span>
 
-  <span class="n">defimpl</span> <span class="nc">Collectable</span> <span class="n">do</span>
-    <span class="n">def</span> <span class="n">into</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="n">do</span>
+  <span class="kd">defimpl</span> <span class="nc">Collectable</span> <span class="k">do</span>
+    <span class="kd">def</span> <span class="n">into</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="k">do</span>
       <span class="p">{</span><span class="n">grid</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span>
-       <span class="n">fn</span>
+       <span class="k">fn</span>
          <span class="n">acc</span><span class="p">,</span> <span class="p">{</span><span class="ss">:cont</span><span class="p">,</span> <span class="p">{</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">}}</span> <span class="o">-&gt;</span>
            <span class="n">into_grid</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="p">{</span><span class="nc">Integer</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">row</span><span class="p">),</span> <span class="nc">Integer</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">col</span><span class="p">)})</span>
 
@@ -197,37 +197,37 @@ Preferred tech stack is Elixir and Go.</h3>
 
          <span class="n">acc</span><span class="p">,</span> <span class="ss">:halt</span> <span class="o">-&gt;</span>
            <span class="p">%{</span><span class="n">grid</span> <span class="o">|</span> <span class="ss">grid</span><span class="p">:</span> <span class="nc">Map</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">acc</span><span class="p">)}</span>
-       <span class="n">end</span><span class="p">}</span>
-    <span class="n">end</span>
+       <span class="k">end</span><span class="p">}</span>
+    <span class="k">end</span>
 
-    <span class="n">defp</span> <span class="n">into_grid</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="p">{</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">})</span> <span class="n">do</span>
-      <span class="n">if</span> <span class="nc">Map</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="n">do</span>
-        <span class="nc">Map</span><span class="o">.</span><span class="n">update!</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="o">&amp;</span><span class="nc">Map</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="ni">&amp;1</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fn</span> <span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">end</span><span class="p">))</span>
-      <span class="n">else</span>
+    <span class="kd">defp</span> <span class="n">into_grid</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="p">{</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">})</span> <span class="k">do</span>
+      <span class="k">if</span> <span class="nc">Map</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="k">do</span>
+        <span class="nc">Map</span><span class="o">.</span><span class="n">update!</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="o">&amp;</span><span class="nc">Map</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="ni">&amp;1</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">fn</span> <span class="n">v</span> <span class="o">-&gt;</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span><span class="p">))</span>
+      <span class="k">else</span>
         <span class="nc">Map</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="nc">Map</span><span class="o">.</span><span class="n">put</span><span class="p">(%{},</span> <span class="n">col</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-      <span class="n">end</span>
-    <span class="n">end</span>
-  <span class="n">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 
-  <span class="n">defimpl</span> <span class="nc">Enumerable</span> <span class="n">do</span>
-    <span class="n">def</span> <span class="n">reduce</span><span class="p">(%{</span><span class="ss">grid</span><span class="p">:</span> <span class="n">map</span><span class="p">},</span> <span class="n">acc</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span> <span class="n">do</span>
+  <span class="kd">defimpl</span> <span class="nc">Enumerable</span> <span class="k">do</span>
+    <span class="kd">def</span> <span class="n">reduce</span><span class="p">(%{</span><span class="ss">grid</span><span class="p">:</span> <span class="n">map</span><span class="p">},</span> <span class="n">acc</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span> <span class="k">do</span>
       <span class="n">reduce_list</span><span class="p">(</span><span class="ss">:maps</span><span class="o">.</span><span class="n">to_list</span><span class="p">(</span><span class="n">map</span><span class="p">),</span> <span class="n">acc</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
-    <span class="n">end</span>
+    <span class="k">end</span>
 
-    <span class="n">defp</span> <span class="n">reduce_list</span><span class="p">(</span><span class="n">_list</span><span class="p">,</span> <span class="p">{</span><span class="ss">:halt</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">_fun</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="p">{</span><span class="ss">:halted</span><span class="p">,</span> <span class="n">acc</span><span class="p">}</span>
+    <span class="kd">defp</span> <span class="n">reduce_list</span><span class="p">(</span><span class="n">_list</span><span class="p">,</span> <span class="p">{</span><span class="ss">:halt</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">_fun</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="p">{</span><span class="ss">:halted</span><span class="p">,</span> <span class="n">acc</span><span class="p">}</span>
 
-    <span class="n">defp</span> <span class="n">reduce_list</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="p">{</span><span class="ss">:suspend</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">fun</span><span class="p">),</span>
+    <span class="kd">defp</span> <span class="n">reduce_list</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="p">{</span><span class="ss">:suspend</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">fun</span><span class="p">),</span>
       <span class="ss">do</span><span class="p">:</span> <span class="p">{</span><span class="ss">:suspended</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">reduce_list</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="ni">&amp;1</span><span class="p">,</span> <span class="n">fun</span><span class="p">)}</span>
 
-    <span class="n">defp</span> <span class="n">reduce_list</span><span class="p">([],</span> <span class="p">{</span><span class="ss">:cont</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">_fun</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="p">{</span><span class="ss">:done</span><span class="p">,</span> <span class="n">acc</span><span class="p">}</span>
+    <span class="kd">defp</span> <span class="n">reduce_list</span><span class="p">([],</span> <span class="p">{</span><span class="ss">:cont</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">_fun</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="p">{</span><span class="ss">:done</span><span class="p">,</span> <span class="n">acc</span><span class="p">}</span>
 
-    <span class="n">defp</span> <span class="n">reduce_list</span><span class="p">([</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">],</span> <span class="p">{</span><span class="ss">:cont</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">fun</span><span class="p">),</span>
+    <span class="kd">defp</span> <span class="n">reduce_list</span><span class="p">([</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">],</span> <span class="p">{</span><span class="ss">:cont</span><span class="p">,</span> <span class="n">acc</span><span class="p">},</span> <span class="n">fun</span><span class="p">),</span>
       <span class="ss">do</span><span class="p">:</span> <span class="n">reduce_list</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">fun</span><span class="o">.</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">acc</span><span class="p">),</span> <span class="n">fun</span><span class="p">)</span>
-  <span class="n">end</span>
-<span class="n">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<span class="n">defmodule</span> <span class="nc">Disputed</span> <span class="n">do</span>
-  <span class="n">def</span> <span class="n">count</span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="n">do</span>
+<span class="kd">defmodule</span> <span class="nc">Disputed</span> <span class="k">do</span>
+  <span class="kd">def</span> <span class="n">count</span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">input</span>
     <span class="o">|&gt;</span> <span class="nc">Claims</span><span class="o">.</span><span class="n">from_input</span><span class="p">()</span>
     <span class="c1"># claims to enumerable streams</span>
@@ -236,47 +236,47 @@ Preferred tech stack is Elixir and Go.</h3>
     <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span><span class="p">(%</span><span class="nc">Grid</span><span class="p">{},</span> <span class="o">&amp;</span><span class="nc">Enum</span><span class="o">.</span><span class="n">into</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
     <span class="c1"># reduce streams to disputed tiles count</span>
     <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count_disputed_tiles</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-  <span class="n">end</span>
+  <span class="k">end</span>
 
-  <span class="n">defp</span> <span class="n">count_disputed_tiles</span><span class="p">({</span><span class="n">_</span><span class="p">,</span> <span class="n">col</span><span class="p">},</span> <span class="n">acc</span><span class="p">)</span> <span class="n">do</span>
-    <span class="n">acc</span> <span class="o">+</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">fn</span> <span class="p">{</span><span class="n">_</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="n">end</span><span class="p">)</span>
-  <span class="n">end</span>
-<span class="n">end</span>
+  <span class="kd">defp</span> <span class="n">count_disputed_tiles</span><span class="p">({</span><span class="n">_</span><span class="p">,</span> <span class="n">col</span><span class="p">},</span> <span class="n">acc</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">acc</span> <span class="o">+</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="k">fn</span> <span class="p">{</span><span class="n">_</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">end</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<span class="n">defmodule</span> <span class="nc">Claims</span> <span class="n">do</span>
-  <span class="n">defstruct</span> <span class="ss">id</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span>
-            <span class="ss">x</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span>
-            <span class="ss">y</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span>
-            <span class="ss">width</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span>
-            <span class="ss">height</span><span class="p">:</span> <span class="n">nil</span>
+<span class="kd">defmodule</span> <span class="nc">Claims</span> <span class="k">do</span>
+  <span class="kd">defstruct</span> <span class="ss">id</span><span class="p">:</span> <span class="no">nil</span><span class="p">,</span>
+            <span class="ss">x</span><span class="p">:</span> <span class="no">nil</span><span class="p">,</span>
+            <span class="ss">y</span><span class="p">:</span> <span class="no">nil</span><span class="p">,</span>
+            <span class="ss">width</span><span class="p">:</span> <span class="no">nil</span><span class="p">,</span>
+            <span class="ss">height</span><span class="p">:</span> <span class="no">nil</span>
 
   <span class="na">@claims_pattern</span> <span class="sx">~r{</span><span class="err">#</span><span class="sx">(?&lt;id&gt;[0-9]+)</span><span class="se">\s</span><span class="sx">+@</span><span class="se">\s</span><span class="sx">+(?&lt;x&gt;[0-9]+),(?P&lt;y&gt;[0-9]+):</span><span class="se">\s</span><span class="sx">+(?&lt;w&gt;[0-9]+)x(?&lt;h&gt;[0-9]+)}</span>
 
-  <span class="n">def</span> <span class="n">from_input</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">do</span>
+  <span class="kd">def</span> <span class="n">from_input</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">file</span>
     <span class="o">|&gt;</span> <span class="nc">File</span><span class="o">.</span><span class="n">stream!</span><span class="p">()</span>
     <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">parse</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
-  <span class="n">end</span>
+  <span class="k">end</span>
 
-  <span class="n">def</span> <span class="n">stream</span><span class="p">(</span><span class="err">%</span><span class="n">__MODULE__</span><span class="p">{</span><span class="ss">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="ss">y</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="ss">width</span><span class="p">:</span> <span class="n">w</span><span class="p">,</span> <span class="ss">height</span><span class="p">:</span> <span class="n">h</span><span class="p">})</span> <span class="n">do</span>
+  <span class="kd">def</span> <span class="n">stream</span><span class="p">(</span><span class="err">%</span><span class="n">__MODULE__</span><span class="p">{</span><span class="ss">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="ss">y</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="ss">width</span><span class="p">:</span> <span class="n">w</span><span class="p">,</span> <span class="ss">height</span><span class="p">:</span> <span class="n">h</span><span class="p">})</span> <span class="k">do</span>
     <span class="p">{</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">}</span>
-    <span class="o">|&gt;</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">iterate</span><span class="p">(</span><span class="n">fn</span> <span class="p">{</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">}</span> <span class="o">-&gt;</span>
-      <span class="n">if</span> <span class="n">x_</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span> <span class="n">do</span>
+    <span class="o">|&gt;</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">iterate</span><span class="p">(</span><span class="k">fn</span> <span class="p">{</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">}</span> <span class="o">-&gt;</span>
+      <span class="k">if</span> <span class="n">x_</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span> <span class="k">do</span>
         <span class="p">{</span><span class="n">x_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y_</span><span class="p">}</span>
-      <span class="n">else</span>
+      <span class="k">else</span>
         <span class="p">{</span><span class="n">x</span><span class="p">,</span> <span class="n">y_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span>
-      <span class="n">end</span>
-    <span class="n">end</span><span class="p">)</span>
-    <span class="o">|&gt;</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">take_while</span><span class="p">(</span><span class="n">fn</span> <span class="p">{</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">}</span> <span class="o">-&gt;</span>
+      <span class="k">end</span>
+    <span class="k">end</span><span class="p">)</span>
+    <span class="o">|&gt;</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">take_while</span><span class="p">(</span><span class="k">fn</span> <span class="p">{</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">}</span> <span class="o">-&gt;</span>
       <span class="n">x_</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span> <span class="o">&amp;&amp;</span> <span class="n">y_</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span>
-    <span class="n">end</span><span class="p">)</span>
-  <span class="n">end</span>
+    <span class="k">end</span><span class="p">)</span>
+  <span class="k">end</span>
 
-  <span class="n">defp</span> <span class="n">parse</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="n">do</span>
+  <span class="kd">defp</span> <span class="n">parse</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">names</span> <span class="o">=</span>
       <span class="na">@claims_pattern</span>
       <span class="o">|&gt;</span> <span class="nc">Regex</span><span class="o">.</span><span class="n">named_captures</span><span class="p">(</span><span class="nc">String</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
-      <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fn</span> <span class="p">{</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="p">{</span><span class="nc">String</span><span class="o">.</span><span class="n">to_atom</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="nc">String</span><span class="o">.</span><span class="n">to_integer</span><span class="p">(</span><span class="n">v</span><span class="p">)}</span> <span class="n">end</span><span class="p">)</span>
+      <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">fn</span> <span class="p">{</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="p">{</span><span class="nc">String</span><span class="o">.</span><span class="n">to_atom</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="nc">String</span><span class="o">.</span><span class="n">to_integer</span><span class="p">(</span><span class="n">v</span><span class="p">)}</span> <span class="k">end</span><span class="p">)</span>
 
     <span class="n">struct</span><span class="p">(</span>
       <span class="n">__MODULE__</span><span class="p">,</span>
@@ -286,35 +286,35 @@ Preferred tech stack is Elixir and Go.</h3>
       <span class="ss">width</span><span class="p">:</span> <span class="n">names</span><span class="p">[</span><span class="ss">:w</span><span class="p">],</span>
       <span class="ss">height</span><span class="p">:</span> <span class="n">names</span><span class="p">[</span><span class="ss">:h</span><span class="p">]</span>
     <span class="p">)</span>
-  <span class="n">end</span>
-<span class="n">end</span>
-</code></pre></div><p>Jose Valim&rsquo;s super short if not equally (as BurntSushi&rsquo;s) elegant implementation, for comparison. It&rsquo;s concise and readable, despite the nested <code>Enum.reduce</code> expressions in the <code>claimed_inches</code> function. In the hands of lesser programmers&rsquo; this approach would have</p>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div><p>Jose Valim&rsquo;s super short if not equally (as BurntSushi&rsquo;s) elegant implementation, for comparison. It&rsquo;s concise and readable, despite the nested <code>Enum.reduce</code> expressions in the <code>claimed_inches</code> function. In the hands of lesser programmers' this approach would have</p>
 <p>(types and doctests redacted)</p>
-<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="n">defmodule</span> <span class="nc">Day3</span> <span class="n">do</span>
-  <span class="n">def</span> <span class="n">parse_claim</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="n">when</span> <span class="n">is_binary</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="n">do</span>
+<div class="highlight"><pre class="chroma"><code class="language-elixir" data-lang="elixir"><span class="kd">defmodule</span> <span class="nc">Day3</span> <span class="k">do</span>
+  <span class="kd">def</span> <span class="n">parse_claim</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="ow">when</span> <span class="n">is_binary</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">string</span>
-    <span class="o">|&gt;</span> <span class="nc">String</span><span class="o">.</span><span class="n">split</span><span class="p">([</span><span class="s2">&#34;</span><span class="err">#</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;@&#34;</span><span class="p">,</span> <span class="s2">&#34;,&#34;</span><span class="p">,</span> <span class="s2">&#34;:&#34;</span><span class="p">,</span> <span class="s2">&#34;x&#34;</span><span class="p">],</span> <span class="ss">trim</span><span class="p">:</span> <span class="n">true</span><span class="p">)</span>
+    <span class="o">|&gt;</span> <span class="nc">String</span><span class="o">.</span><span class="n">split</span><span class="p">([</span><span class="s2">&#34;</span><span class="err">#</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;@&#34;</span><span class="p">,</span> <span class="s2">&#34;,&#34;</span><span class="p">,</span> <span class="s2">&#34;:&#34;</span><span class="p">,</span> <span class="s2">&#34;x&#34;</span><span class="p">],</span> <span class="ss">trim</span><span class="p">:</span> <span class="no">true</span><span class="p">)</span>
     <span class="o">|&gt;</span> <span class="nc">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="nc">String</span><span class="o">.</span><span class="n">to_integer</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
-  <span class="n">end</span>
+  <span class="k">end</span>
 
-  <span class="n">def</span> <span class="n">claimed_inches</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="n">do</span>
-    <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">claims</span><span class="p">,</span> <span class="p">%{},</span> <span class="n">fn</span> <span class="n">claim</span><span class="p">,</span> <span class="n">acc</span> <span class="o">-&gt;</span> 
+  <span class="kd">def</span> <span class="n">claimed_inches</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="k">do</span>
+    <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">claims</span><span class="p">,</span> <span class="p">%{},</span> <span class="k">fn</span> <span class="n">claim</span><span class="p">,</span> <span class="n">acc</span> <span class="o">-&gt;</span> 
       <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_claim</span><span class="p">(</span><span class="n">claim</span><span class="p">)</span>
     
-      <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span> <span class="p">(</span><span class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">..</span><span class="p">(</span><span class="n">left</span><span class="o">+</span> <span class="n">width</span><span class="p">),</span> <span class="n">acc</span><span class="p">,</span> <span class="n">fn</span> <span class="n">x</span><span class="p">,</span> <span class="n">acc</span> <span class="o">-&gt;</span>
-        <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span> <span class="p">(</span><span class="n">top</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">..</span><span class="p">(</span><span class="n">top</span><span class="o">+</span><span class="n">height</span><span class="p">),</span> <span class="n">acc</span><span class="p">,</span> <span class="n">fn</span> <span class="n">y</span><span class="p">,</span> <span class="n">acc</span> <span class="o">-&gt;</span>
+      <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span> <span class="p">(</span><span class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">..</span><span class="p">(</span><span class="n">left</span><span class="o">+</span> <span class="n">width</span><span class="p">),</span> <span class="n">acc</span><span class="p">,</span> <span class="k">fn</span> <span class="n">x</span><span class="p">,</span> <span class="n">acc</span> <span class="o">-&gt;</span>
+        <span class="nc">Enum</span><span class="o">.</span><span class="n">reduce</span> <span class="p">(</span><span class="n">top</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">..</span><span class="p">(</span><span class="n">top</span><span class="o">+</span><span class="n">height</span><span class="p">),</span> <span class="n">acc</span><span class="p">,</span> <span class="k">fn</span> <span class="n">y</span><span class="p">,</span> <span class="n">acc</span> <span class="o">-&gt;</span>
           <span class="nc">Map</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">},</span> <span class="p">[</span><span class="n">id</span><span class="p">],</span> <span class="o">&amp;</span><span class="p">([</span><span class="n">id</span> <span class="o">|</span> <span class="ni">&amp;1</span><span class="p">]))</span>
-        <span class="n">end</span>
-      <span class="n">end</span>
-    <span class="n">end</span><span class="p">)</span>
-  <span class="n">end</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span><span class="p">)</span>
+  <span class="k">end</span>
 
-  <span class="n">def</span> <span class="n">overlapped_inches</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="n">do</span>
-    <span class="n">for</span> <span class="p">{</span><span class="n">coordinate</span><span class="p">,</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">|</span> <span class="n">_</span><span class="p">]}</span> <span class="o">&lt;-</span> <span class="n">claimed_inches</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="n">do</span>
+  <span class="kd">def</span> <span class="n">overlapped_inches</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="k">do</span>
+    <span class="k">for</span> <span class="p">{</span><span class="n">coordinate</span><span class="p">,</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">|</span> <span class="n">_</span><span class="p">]}</span> <span class="o">&lt;-</span> <span class="n">claimed_inches</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="k">do</span>
       <span class="n">coordinate</span>
-    <span class="n">end</span>
-  <span class="n">end</span>
-<span class="n">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre></div>
             </div>
         </div>
