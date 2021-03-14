@@ -8,12 +8,12 @@
     <language>en-US</language>
     <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate><atom:link href="https://arhyth.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cache Near Your Source</title>
+      <title>Cache near your source</title>
       <link>https://arhyth.github.io/blog/cache-near-your-source/</link>
       <pubDate>Sat, 13 Mar 2021 10:35:21 +0800</pubDate>
       
       <guid>https://arhyth.github.io/blog/cache-near-your-source/</guid>
-      <description>Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.
+      <description>Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The difficulty boils down to one issue: the cache was &amp;ldquo;too far&amp;rdquo; from the pertinent data source.
 Clients of cached components/services do not need to know about caching. They could care less if it&amp;rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory.</description>
     </item>
     

@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="David Ebreo">
-<meta name="description" content="Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.
+<meta name="description" content="Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The difficulty boils down to one issue: the cache was &ldquo;too far&rdquo; from the pertinent data source.
 Clients of cached components/services do not need to know about caching. They could care less if it&rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory.">
 
-<meta property="og:title" content="Cache Near Your Source" />
-<meta property="og:description" content="Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.
+<meta property="og:title" content="Cache near your source" />
+<meta property="og:description" content="Cache near your source At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The difficulty boils down to one issue: the cache was &ldquo;too far&rdquo; from the pertinent data source.
 Clients of cached components/services do not need to know about caching. They could care less if it&rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://arhyth.github.io/blog/cache-near-your-source/" />
@@ -24,7 +24,7 @@ Clients of cached components/services do not need to know about caching. They co
 <title>
 
 
-     Cache Near Your Source 
+     Cache near your source 
 
 </title>
 <link rel="canonical" href="https://arhyth.github.io/blog/cache-near-your-source/">
@@ -45,11 +45,11 @@ Clients of cached components/services do not need to know about caching. They co
 
 
     
-    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
-    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/reset.css?t=2021-03-14%2013%3a40%3a57.451718873%20%2b0000%20UTC%20m%3d%2b2.159081529">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/pygments.css?t=2021-03-14%2013%3a40%3a57.451718873%20%2b0000%20UTC%20m%3d%2b2.159081529">
+    <link rel="stylesheet" href="https://arhyth.github.io/css/main.css?t=2021-03-14%2013%3a40%3a57.451718873%20%2b0000%20UTC%20m%3d%2b2.159081529">
     
-        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-03-14%2012%3a46%3a39.281255609%20%2b0000%20UTC%20m%3d%2b2.096945770">
+        <link rel="stylesheet" href="https://arhyth.github.io/css/override.css?t=2021-03-14%2013%3a40%3a57.451718873%20%2b0000%20UTC%20m%3d%2b2.159081529">
     
 
 
@@ -199,11 +199,11 @@ Preferred tech stack is Elixir and Go.</h3>
             <div class="markdown">
                 <h1 id="cache-near-your-source">Cache near your source</h1>
 <!-- raw HTML omitted -->
-<p>At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The diffuculty boils down to one issue: the cache was too far from the pertinent data source.</p>
+<p>At $WORK, I recently needed to make a change which could have been an easy change if only our system was designed differently. The difficulty boils down to one issue: the cache was &ldquo;too far&rdquo; from the pertinent data source.</p>
 <p>Clients of cached components/services do not need to know about caching. They could care less if it&rsquo;s making a very expensive call to a third party service the other side of the world or simply fetching a response from memory. This is a property and the main selling point of interfaces.</p>
-<h2 id="share-the-same-interface">Share the same interface</h2>
+<h2 id="unidirectional-data-flow">*Unidirectional data flow</h2>
 <p>You can make all sorts of optimization between a source and its cache because these details are hidden behind an interface. On the other hand, the farther away (in layers of abstraction) a cache is from its source, the more complexity it eventually (it has to) leaks to the whole system.</p>
-<p>Consider <code>System C</code> above which depends on <code>Component A</code> and <code>Component B</code>. The two components share the same interface but have different implementations. <code>System C</code> is not aware that the two components have their own cache. From <code>System C</code> perspective, how the sources interact with their own cache (sca, scb) or even whether the caches exist or not does not matter.</p>
+<p>Consider <code>System C</code> which depends on <code>Component A</code> and <code>Component B</code>. The two components share the same interface but have different implementations. <code>System C</code> is not aware that the two components have their own cache. From <code>System C</code> perspective, how the sources interact with their own cache (sca, scb) or even whether the caches exist or not does not matter.</p>
 <pre><code class="language-ascii" data-lang="ascii">┌──────────────────┐
 │      Component A │
 │  ┌─────────┐     │◄─────────┐
@@ -251,7 +251,8 @@ Preferred tech stack is Elixir and Go.</h3>
 │    └─────────┘   │
 │                  │
 └──────────────────┘
-</code></pre><p>Notice that when the cache was colocated with the source, the data flow across components was unidirectional. It would be easy to dismiss this difference as trivial but add in another layer of abstraction between <code>System C</code> and the source components and the data flows easily gets hairy.</p>
+</code></pre><p>Notice that when the cache was colocated with the source and exposed via the same interface to the &ldquo;outside world&rdquo;, the data flow across components was unidirectional. There were no adhoc communication channels. It would be easy to dismiss this difference as trivial but add in another layer of abstraction between <code>System C</code> and the source components and the data flows easily gets hairy.</p>
+<p>*I use the term here loosely to mean a single line of communication, and do not correspond to common usage e.g. React/Elm data flow.</p>
 
                 <br>
                 
